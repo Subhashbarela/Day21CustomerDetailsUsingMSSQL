@@ -10,7 +10,7 @@ namespace Day21CreateCustomerTableUsingDB
     {
         static void Main(string[] args)
         {
-            CustomerClass customer = new CustomerClass();
+            CustomerClass customer = new CustomerClass();           
             customer.Customer_Name = "Rajvir";
             customer.PhoneNumber = 8654357756;
             customer.Address = "Rajstan";
@@ -18,7 +18,10 @@ namespace Day21CreateCustomerTableUsingDB
             customer.Salary = 4535353;
             customer.Pincode = 543435;
             CustomerInfo info = new CustomerInfo();
-            info.InsertDataFromCustomerClass(customer);
+            info.InsertData(customer);
+           // info.UpdateData();
+            //info.DeleteData();
+           // info.RetriveData();
         }
     }
 }
