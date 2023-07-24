@@ -34,7 +34,35 @@ namespace Day21CreateCustomerTableUsingDB
             {
                 con.Close();
             }
-        }       
+        } //Retrive => R
+        public void RetriveData()
+        {
+            SqlConnection conn = new SqlConnection(connString);
+
+            try
+            {
+                conn.Open();
+                string displayQuery = "select * from CustomerDB";
+                SqlCommand cmd = new SqlCommand(displayQuery, conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Console.WriteLine("CustomerId : " + dr.GetValue(0).ToString());
+                    Console.WriteLine("Customer_Name : " + dr.GetValue(1).ToString());
+                    Console.WriteLine("PhoneNumber : " + dr.GetValue(2).ToString());
+                    Console.WriteLine("Address : " + dr.GetValue(3).ToString());
+                    Console.WriteLine("Country : " + dr.GetValue(4).ToString());
+                    Console.WriteLine("Salary : " + dr.GetValue(5).ToString());
+                    Console.WriteLine("Pincode : " + dr.GetValue(6).ToString());
+                    Console.WriteLine("");
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
     }
 }

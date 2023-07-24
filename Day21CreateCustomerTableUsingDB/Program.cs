@@ -17,11 +17,11 @@ namespace Day21CreateCustomerTableUsingDB
             customer.Country = "India";
             customer.Salary = 4535353;
             customer.Pincode = 543435;
-            CustomerInfo info = new CustomerInfo();
-            info.InsertData(customer);
-           // info.UpdateData();
+            CustomerInfo info = new CustomerInfo();            
+            //info.InsertData(customer);
+            info.RetriveData();
+            // info.UpdateData();
             //info.DeleteData();
-           // info.RetriveData();
         }
     }
 }
