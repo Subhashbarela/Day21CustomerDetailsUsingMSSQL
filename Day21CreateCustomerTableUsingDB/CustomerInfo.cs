@@ -63,6 +63,25 @@ namespace Day21CreateCustomerTableUsingDB
                 Console.WriteLine(ex.Message);
             }
         }
+        //Update => U
+        public void UpdateData(CustomerClass c)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+
+            try
+            {
+                conn.Open();               
+                string updateQuery = "update CustomerDB set Customer_Name ='" + c.Customer_Name + "' where CustomerId = '" +c.CustomerId + "'";
+                SqlCommand cmd = new SqlCommand(updateQuery, conn);
+                int n = cmd.ExecuteNonQuery();
+                Console.WriteLine($"{n} row(s) id update..");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
     }
 }
