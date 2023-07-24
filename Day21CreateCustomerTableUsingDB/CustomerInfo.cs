@@ -15,15 +15,14 @@ namespace Day21CreateCustomerTableUsingDB
         //Create => C
         public void InsertData(CustomerClass c)
         {
-            SqlConnection conn = new SqlConnection(connString);
-            conn.Open();
+            SqlConnection con = new SqlConnection(connString);
+            con.Open();
             try
             {
-                Console.WriteLine("Connection can be established successfully!");               
-                
+                Console.WriteLine("Connection can be established successfully!");                 
                 string insertQuery = "Insert into CustomerDB(Customer_Name,PhoneNumber,Address,Country,Salary,Pincode)" +
                     "VALUES('" +c.Customer_Name + "','" +c.PhoneNumber + "','" +c.Address + "','" +c.Country + "','"+c.Salary + "','"+c.Pincode + "')";
-                SqlCommand cmd = new SqlCommand(insertQuery, conn);
+                SqlCommand cmd = new SqlCommand(insertQuery, con);
                 int n = cmd.ExecuteNonQuery();
                 Console.WriteLine($"{n} row(s) inserted successfully!....");
                            }
@@ -33,7 +32,7 @@ namespace Day21CreateCustomerTableUsingDB
             }
             finally
             {
-                conn.Close();
+                con.Close();
             }
         }       
 
