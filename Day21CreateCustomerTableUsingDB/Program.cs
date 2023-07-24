@@ -10,20 +10,21 @@ namespace Day21CreateCustomerTableUsingDB
     {
         static void Main(string[] args)
         {
-            CustomerClass customer = new CustomerClass();           
-            customer.Customer_Name = "Rajvir";
-            customer.PhoneNumber = 8654357756;
-            customer.Address = "Rajstan";
-            customer.Country = "India";
-            customer.Salary = 4535353;
-            customer.Pincode = 543435;
-            Console.WriteLine("1: Insert Data To Database \n2: Retrive Data From db \n3: Update Data");
+           
+            Console.WriteLine("1: Insert Data To Database \n2: Retrive Data From db \n3: Update Data \n4: Delete Data");
             Console.WriteLine("insert the choice");
             int choice=int.Parse(Console.ReadLine());
             switch (choice)
             {
                 case 1:
                     {
+                        CustomerClass customer = new CustomerClass();
+                        customer.Customer_Name = "Rahul";
+                        customer.PhoneNumber = 6743002344;
+                        customer.Address = "MH";
+                        customer.Country = "India";
+                        customer.Salary = 540000;
+                        customer.Pincode = 425321;
                         CustomerInfo info = new CustomerInfo();
                         info.InsertData(customer);
                         break;
@@ -43,12 +44,21 @@ namespace Day21CreateCustomerTableUsingDB
                         info.UpdateData(c);
                         break;
                     }
+                case 4:
+                    {
+                        CustomerClass c = new CustomerClass();
+                        CustomerInfo info = new CustomerInfo();                        
+                        c.CustomerId = 5;
+                        info.DeleteData(c);
+                        break;
+                    }
                 default:
                     {
                         Console.WriteLine("Please insert valid input");
                         break;
                     }
-            }            
+            }
+            Console.ReadLine();
             
         }
     }

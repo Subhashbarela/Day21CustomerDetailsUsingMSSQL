@@ -82,6 +82,24 @@ namespace Day21CreateCustomerTableUsingDB
                 Console.WriteLine(ex.Message);
             }
         }
+        //Delete =>D
+        public void DeleteData(CustomerClass c)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            try
+            {
+                conn.Open();
+                string deleteQuery = "delete from CustomerDB where CustomerId = '" + c.CustomerId + "'";
+                SqlCommand cmd = new SqlCommand(deleteQuery, conn);
+                int n = cmd.ExecuteNonQuery();
+                Console.WriteLine($"{n} row(s) Deleted Successfully..");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
     }
 }
